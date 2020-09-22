@@ -10,16 +10,12 @@ pool: server
 
 stages:
 - stage: _default
-  displayName: 'Test Dev Code Quality'
+  displayName: 'Consumer pipeline'
   jobs:
   - job: Library_scan
-    pool: server
   - job: Custom_scan
-    pool: server
     dependsOn: Library_scan
   - job: Selenium_test
-    pool: server
     dependsOn: Custom_scan
   - job: Deploy
-    pool: server
     dependsOn: Selenium_test
