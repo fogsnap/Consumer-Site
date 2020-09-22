@@ -1,0 +1,25 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool: server
+
+stages:
+- stage: _default
+  displayName: 'Test Dev Code Quality'
+  jobs:
+  - job: Library_scan
+    pool: server
+  - job: Custom_scan
+    pool: server
+    dependsOn: Library_scan
+  - job: Selenium_test
+    pool: server
+    dependsOn: Custom_scan
+  - job: Deploy
+    pool: server
+    dependsOn: Selenium_test
