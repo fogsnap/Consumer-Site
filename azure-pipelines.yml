@@ -17,8 +17,9 @@ stages:
   - job: Selenium_test
     dependsOn: Custom_scan
   - job: Deploy
+    dependsOn: Selenium_test
     steps:
       - task: ServiceNow-DevOps-Server-Change-Acceleration@1
         inputs:
           connectedServiceName: 'DevOps Connection'
-    dependsOn: Selenium_test
+
