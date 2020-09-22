@@ -9,8 +9,7 @@ trigger:
 pool: server
 
 stages:
-- stage: p
-  displayName: 'Consumer pipeline'
+- stage: Release
   jobs:
   - job: Library_scan
   - job: Custom_scan
