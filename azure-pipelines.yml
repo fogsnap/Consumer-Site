@@ -10,6 +10,7 @@ pool: server
 
 stages:
 - stage: Release
+  displayName: "Pixel Release"
   jobs:
   - job: Library_scan
   - job: Custom_scan
