@@ -15,7 +15,6 @@ pipeline {
                 snDevOpsStep()
                 echo 'Hello, UAT deploy'
                 }
-            }
         }
         stage('UAT test') {
             steps {
