@@ -14,10 +14,12 @@ pipeline {
                 echo 'Hello, UAT deploy'
                 }
         }
-        stage('UAT test') {
-            steps {
-                //snDevOpsStep()
-                echo 'Hello, UAT test'
+        if ("skip" == "skip") {
+            stage('UAT test') {
+                steps {
+                    //snDevOpsStep()
+                    echo 'Hello, UAT test'
+                }
             }
         }
         stage('Prod Deploy') {
