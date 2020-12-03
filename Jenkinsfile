@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    
+    parameters {
+        booleanParam(name: "DEPLOY", defaultValue: false)
+    }
 
     stages {
         stage('Build') {
@@ -9,17 +13,16 @@ pipeline {
             }
         }
         stage('UAT deploy') {
+            when { expression { params.DEPLOY} }
             steps {
                 //snDevOpsStep()
                 echo 'Hello, UAT deploy'
                 }
         }
-        if (true) {
-            stage('UAT test') {
-                steps {
-                    //snDevOpsStep()
-                    echo 'Hello, UAT test'
-                }
+        stage('UAT test') {
+            steps {
+                //snDevOpsStep()
+                echo 'Hello, UAT test'
             }
         }
         stage('Prod Deploy') {
