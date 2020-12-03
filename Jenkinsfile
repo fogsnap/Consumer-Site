@@ -23,7 +23,7 @@ pipeline {
         stage('Prod Deploy') {
             steps {
                 //snDevOpsStep()
-                //snDevOpsChange()
+                snDevOpsChange()
                 echo 'Hello, Prod Deploy'
             }
         }
