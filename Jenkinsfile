@@ -14,7 +14,7 @@ pipeline {
                 echo 'Hello, UAT deploy'
                 }
         }
-        if ("skip" == "skip") {
+        if (true) {
             stage('UAT test') {
                 steps {
                     //snDevOpsStep()
